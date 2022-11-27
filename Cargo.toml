@@ -1,0 +1,29 @@
+[package]
+name = "bakery-tonic-rpc"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[[bin]]
+name = "server"
+path = "src/server.rs"
+
+
+[[bin]]
+name = "client"
+path = "src/client.rs"
+
+
+[dependencies]
+protobuf        = "2"
+httpbis         = { git = "https://github.com/stepancheg/rust-http2" }
+grpc ="*"
+grpc-protobuf="*"
+tonic = "0.8"
+tokio = { version = "1.0", features = ["macros", "rt-multi-thread"] }
+prost = "0.11"
+
+[build-dependencies]
+protoc-rust-grpc = "0.8.2"
+tonic-build = "0.8"
